@@ -7,12 +7,13 @@ namespace Script
     {
         //MovementVariable
         public float moveSpeed=3;
-
         private CharacterController _controller;
-
         private float hInput;
-
         [HideInInspector] public Vector3 dir;
+        //variable shoot
+        //variable
+        public GameObject bullet;
+        public Transform shootPosition;
         // Start is called before the first frame update
         void Start()
         {
@@ -23,8 +24,16 @@ namespace Script
         void Update()
         {
             getDirection();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Tembak();
+            }
         }
-
+        void Tembak()
+        {
+            //summon
+            Instantiate(bullet, shootPosition.position, shootPosition.rotation);
+        }
         void getDirection()
         {
             hInput = Input.GetAxisRaw("Horizontal");
