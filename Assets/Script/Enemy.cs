@@ -6,7 +6,7 @@ namespace Script
     {
         //variable enemy
         public int health = 100;
-
+        public float speed =10;
         public void KeDamage(int damage)
         {
             health -= damage;
@@ -18,7 +18,9 @@ namespace Script
         // Start is called before the first frame update
         void Start()
         {
-        
+            //Enemy akan bergerak saat di intantiate
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.velocity = transform.forward * speed;
         }
 
         // Update is called once per frame
